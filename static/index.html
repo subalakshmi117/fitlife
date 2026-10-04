@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f4">
+    <meta name="description" content="Your kind, personal space for movement, nourishing food and feel-good progress.">
+    <title>FitLife — a little better, every day</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="authScreen" class="auth-screen">
+      <div class="auth-story">
+        <a class="brand brand-light" href="/" aria-label="FitLife home"><span class="brand-mark">f</span><span>fitlife</span></a>
+        <div class="story-copy">
+          <span class="eyebrow">YOUR SPACE TO FEEL GOOD</span>
+          <h1>Small steps.<br>Big <em>feel-good</em><br>energy.</h1>
+          <p>Movement that meets you where you are. Good food without the fuss. Progress that feels like yours.</p>
+          <div class="story-note"><span class="note-icon">✳</span><span>Made for real life, not perfection.</span></div>
+        </div>
+        <div class="story-orbit orbit-one"></div><div class="story-orbit orbit-two"></div>
+        <span class="story-sun">✳</span>
+        <div class="story-bottom">A little better, every day <span>·</span> Your journey, your pace</div>
+      </div>
+      <main class="auth-main">
+        <section class="auth-card">
+          <a class="brand brand-mobile" href="/"><span class="brand-mark">f</span><span>fitlife</span></a>
+          <div class="auth-heading"><span class="eyebrow">WELCOME TO YOUR RESET</span><h2 id="authTitle">Make yourself at home.</h2><p id="authSubtitle">Sign in to pick up right where you left off.</p></div>
+          <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login" type="button">Sign in</button><button class="auth-tab" data-auth-mode="signup" type="button">Create account</button></div>
+          <form id="authForm" novalidate>
+            <div id="signupFields" class="signup-fields hidden">
+              <label>Your name<input name="name" autocomplete="name" placeholder="What should we call you?"></label>
+              <div class="form-row">
+                <label>Age <span class="optional">optional</span><input name="age" type="number" min="13" max="120" placeholder="e.g. 28"></label>
+                <label>Fitness level<select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+              </div>
+            </div>
+            <label>Mail ID<input name="email" type="email" inputmode="email" autocomplete="username" placeholder="Type your mail ID" required></label>
+            <label>Password<input name="password" type="password" autocomplete="current-password" placeholder="At least 8 characters" required></label>
+            <button id="authSubmit" class="button button-primary auth-submit" type="submit">Sign in <span>↗</span></button>
+            <p id="authError" class="form-error" role="alert"></p>
+          </form>
+          <p class="auth-fineprint">By continuing, you agree to be kind to yourself. That's the only rule here.</p>
+        </section>
+      </main>
+    </div>
+
+    <div id="appShell" class="app-shell hidden">
+      <aside class="sidebar">
+        <a class="brand" href="#" data-page="dashboard"><span class="brand-mark">f</span><span>fitlife</span></a>
+        <div class="side-label">YOUR SPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Overview</button>
+          <button class="nav-item" data-page="workouts"><span class="nav-icon">↗</span>Workouts</button>
+          <button class="nav-item" data-page="nutrition"><span class="nav-icon">◒</span>Nutrition</button>
+          <button class="nav-item" data-page="progress"><span class="nav-icon">▥</span>My progress</button>
+          <button class="nav-item" data-page="profile"><span class="nav-icon">◎</span>My profile</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="gentle-card"><span class="gentle-spark">✳</span><strong>You're doing great.</strong><p>Showing up is what counts. Keep going at your own pace.</p></div>
+          <button id="logoutButton" class="logout-button"><span>↪</span> Sign out</button>
+          <div class="sidebar-user"><div id="userAvatar" class="avatar">F</div><div><strong id="sidebarName">Friend</strong><span>Your personal space</span></div><span class="user-menu-dot">···</span></div>
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar"><button id="mobileMenu" class="mobile-menu" aria-label="Open navigation">☰</button><div class="breadcrumb">Your space <span>/</span> <strong id="breadcrumbPage">Overview</strong></div><div class="topbar-right"><span id="todayLabel"></span><div id="topAvatar" class="avatar avatar-small">F</div></div></header>
+        <div class="page-wrap">
+          <section id="dashboardPage" class="page active">
+            <div class="welcome-row"><div><span class="eyebrow">YOUR PERSONAL DASHBOARD</span><h1 id="welcomeTitle">Good morning, friend <span class="wave">✳</span></h1><p>One small step at a time. You're right where you need to be.</p></div><button class="button button-dark" data-page="progress">＋ Log a workout</button></div>
+            <div class="daily-card">
+              <div class="daily-copy"><span class="eyebrow eyebrow-light">A GENTLE REMINDER</span><h2>Progress isn't always loud.</h2><p>Some days, just showing up is the strongest thing you can do.</p><button class="text-link" data-page="workouts">Find your next move <span>↗</span></button></div>
+              <div class="daily-art" aria-hidden="true"><div class="art-circle"><span>✳</span></div><div class="art-leaf leaf-a"></div><div class="art-leaf leaf-b"></div><div class="art-dot"></div></div>
+            </div>
+            <div class="section-heading"><div><span class="eyebrow">YOUR WEEK, YOUR WAY</span><h2>A little check-in</h2></div><button class="text-link" data-page="progress">See your progress <span>↗</span></button></div>
+            <div class="stats-grid">
+              <article class="stat-card"><div class="stat-top"><span class="stat-icon mint">↗</span><span class="stat-caption">THIS WEEK</span></div><div class="stat-number"><span id="weekWorkouts">0</span><small>sessions</small></div><p>Every session is a win.</p><div id="weekDots" class="week-dots" aria-label="Workouts this week"></div></article>
+              <article class="stat-card"><div class="stat-top"><span class="stat-icon butter">◷</span><span class="stat-caption">TIME FOR YOU</span></div><div class="stat-number"><span id="weekMinutes">0</span><small>minutes</small></div><p>Time spent feeling good.</p><div class="mini-progress"><span id="minutesProgress"></span></div></article>
+              <article class="stat-card goal-stat"><div class="stat-top"><span class="stat-icon lilac">✳</span><span class="stat-caption">YOUR FOCUS</span></div><div id="dashboardGoal" class="goal-title">Build a healthy routine</div><p>Your goal, at your pace.</p><button class="soft-link" data-page="profile">Edit your focus <span>↗</span></button></article>
+            </div>
+            <div class="content-grid">
+              <section class="panel"><div class="panel-heading"><div><span class="eyebrow">A GOOD PLACE TO START</span><h2>Made for today</h2></div><button class="icon-link" data-page="workouts" aria-label="See all workouts">↗</button></div><div id="featuredWorkout" class="featured-workout"></div></section>
+              <section class="panel"><div class="panel-heading"><div><span class="eyebrow">A LITTLE NOURISHMENT</span><h2>On the menu</h2></div><button class="icon-link" data-page="nutrition" aria-label="See meal ideas">↗</button></div><div id="featuredMeal" class="featured-meal"></div><p class="nutrition-note">A friendly idea, not a rule. Listen to what your body needs.</p></section>
+            </div>
+          </section>
+          <section id="workoutsPage" class="page">
+            <div class="welcome-row page-title-row"><div><span class="eyebrow">MOVE IN A WAY THAT FEELS GOOD</span><h1>Your movement menu</h1><p>No pressure, no perfect form. Just a place to begin.</p></div><button class="button button-dark" data-page="progress">＋ Log a workout</button></div>
+            <div class="filter-row"><span>Something for every kind of day</span><div id="workoutFilters" class="filter-pills"><button class="filter-pill active" data-filter="All">All</button><button class="filter-pill" data-filter="Strength">Strength</button><button class="filter-pill" data-filter="Cardio">Cardio</button><button class="filter-pill" data-filter="Mobility">Mobility</button></div></div>
+            <div id="workoutGrid" class="workout-grid"></div>
+          </section>
+          <section id="nutritionPage" class="page">
+            <div class="welcome-row page-title-row"><div><span class="eyebrow">FUEL THAT FEELS LIKE YOU</span><h1>Nourish, your way</h1><p>Simple, colorful meal inspiration. No rules, just ideas.</p></div></div>
+            <div class="nutrition-banner"><div><span class="eyebrow eyebrow-light">A KIND THOUGHT FOR TODAY</span><h2>Food is care, not a test.</h2><p>These are just ideas to make planning a little easier. Adjust, swap and enjoy what works for you.</p></div><div class="nutrition-banner-art">◒</div></div>
+            <div class="section-heading nutrition-heading"><div><span class="eyebrow">EASY IDEAS FOR THE DAY</span><h2>A little inspiration</h2></div><span class="soft-badge">Flexible, always</span></div>
+            <div id="mealGrid" class="meal-grid"></div>
+            <p class="nutrition-disclaimer">Nutrition needs are personal. These meal ideas are for inspiration only—not medical advice or a prescribed diet.</p>
+          </section>
+          <section id="progressPage" class="page">
+            <div class="welcome-row page-title-row"><div><span class="eyebrow">NOTICE HOW FAR YOU'VE COME</span><h1>Your progress, your way</h1><p>Every time you show up, it counts. Big or small.</p></div></div>
+            <div class="progress-layout">
+              <section class="panel log-panel"><div class="panel-heading"><div><span class="eyebrow">CELEBRATE YOUR EFFORT</span><h2>Log a session</h2></div><span class="stat-icon mint">＋</span></div>
+                <form id="progressForm" class="progress-form" novalidate>
+                  <label>What did you do?<input name="workout" placeholder="e.g. A feel-good walk" maxlength="100" required></label>
+                  <div class="form-row"><label>Minutes<input name="minutes" type="number" min="1" max="600" placeholder="30" required></label><label>When?<input name="entry_date" type="date" required></label></div>
+                  <label>A note to yourself <span class="optional">optional</span><textarea name="note" rows="3" maxlength="300" placeholder="How did it feel?"></textarea></label>
+                  <button class="button button-primary" type="submit">Save this little win <span>↗</span></button>
+                </form>
+              </section>
+              <section class="panel history-panel"><div class="panel-heading"><div><span class="eyebrow">LOOK AT YOU GO</span><h2>Recent sessions</h2></div><span id="historyCount" class="soft-badge">0 sessions</span></div><div id="progressHistory" class="progress-history"></div></section>
+            </div>
+          </section>
+          <section id="profilePage" class="page">
+            <div class="welcome-row page-title-row"><div><span class="eyebrow">THIS IS YOUR SPACE</span><h1>A little about you</h1><p>Keep your details and personal focus up to date.</p></div></div>
+            <div class="profile-layout">
+              <section class="profile-intro panel"><div id="profileAvatar" class="profile-avatar">F</div><h2 id="profileDisplayName">Your name</h2><p id="profileDisplayEmail">you@example.com</p><div class="profile-divider"></div><span class="eyebrow">YOUR PERSONAL FOCUS</span><p id="profileDisplayGoal" class="profile-goal">Build a healthy routine</p><div class="profile-chip">✳ <span id="profileDisplayLevel">Beginner</span></div></section>
+              <section class="panel profile-form-panel"><div class="panel-heading"><div><span class="eyebrow">GROW AT YOUR OWN PACE</span><h2>Your details</h2></div></div>
+                <form id="profileForm" class="profile-form" novalidate>
+                  <label>Your name<input name="name" required maxlength="70"></label>
+                  <label>Email address<input name="email" type="email" disabled></label>
+                  <div class="form-row"><label>Age <span class="optional">optional</span><input name="age" type="number" min="13" max="120"></label><label>Gender <span class="optional">optional</span><select name="gender"><option value="">Prefer not to say</option><option>Woman</option><option>Man</option><option>Non-binary</option></select></label></div>
+                  <div class="form-row"><label>Height (cm) <span class="optional">optional</span><input name="height_cm" type="number" min="80" max="250" step="0.1" placeholder="170"></label><label>Weight (kg) <span class="optional">optional</span><input name="weight_kg" type="number" min="25" max="350" step="0.1" placeholder="65"></label></div>
+                  <label>Your focus<input name="goal" maxlength="100" required></label>
+                  <label>Experience level<select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+                  <button class="button button-primary" type="submit">Save my details <span>↗</span></button>
+                </form>
+              </section>
+            </div>
+          </section>
+          <footer class="app-footer"><span>Made with a little extra care <span class="footer-spark">✳</span></span><span>Your journey, your pace.</span></footer>
+        </div>
+      </main>
+      <div id="mobileOverlay" class="mobile-overlay"></div>
+    </div>
+  </body>
+</html>

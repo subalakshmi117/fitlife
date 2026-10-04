@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "FitLife: Run",
+      "type": "shell",
+      "command": "python3",
+      "args": ["${workspaceFolder}\\app.py"],
+      "windows": {
+        "command": "python"
+      },
+      "linux": {
+        "command": "python3"
+      },
+      "osx": {
+        "command": "python3"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^(.*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "FitLife is ready at",
+          "endsPattern": "Shutting down FitLife"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}
